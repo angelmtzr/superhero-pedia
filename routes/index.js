@@ -1,20 +1,29 @@
 const express =  require('express');
 const axios = require('axios');
+const { redirect } = require('statuses');
 const router = express.Router();
 
-let url = "https://superheroapi.com/api/3036134866714953/search/a";
+const URL = "https://superheroapi.com/api/3036134866714953/search/";
 
 router.route('/')
     .get((req,res) => {
-        axios.get("https://superheroapi.com/api/3036134866714953/search/a")
-            .then((apiResponse) => {
-                const superheroList = apiResponse.data.results
-                res.render('index', {superheros: superheroList});
-            });
+        getSuperheros(res, URL + "a");
     })
-    .put((req,res) => {
-
+    .post((req,res) => {
+        const nameSearch = req.body.nameSearch;
+        getSuperheros(res, URL + nameSearch);
     });
 
+function getSuperheros(res, url){
+    axios.get(url)
+        .then((apiResponse) => {
+            const superheros = apiResponse.data.results;
+            if (superheros === undefined){
+                // SUPERHERO NOT FOUND
+                return getSuperheros(res, URL + "a");
+            }
+            res.render('index', {superheros: superheros});
+        });
+}
 
 module.exports = router;
