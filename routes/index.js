@@ -1,6 +1,5 @@
 const express =  require('express');
 const axios = require('axios');
-const { redirect } = require('statuses');
 const router = express.Router();
 
 const URL = "https://superheroapi.com/api/3036134866714953/search/";
