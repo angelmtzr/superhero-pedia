@@ -1,11 +1,11 @@
 const express =  require('express');
 const axios = require('axios');
-// const { redirect } = require('statuses');
 const router = express.Router();
 
 const URL = "https://superheroapi.com/api/3036134866714953/";
 let currentId = 1;
 
+// INDEX ROUTE
 router.route('/')
     .get((req,res) => {
         currentId = 1;
@@ -16,12 +16,14 @@ router.route('/')
             });
     });
 
+// PREVIOUS CHARACTER ROUTE
 router.get('/previous', (req, res) => {
     if(currentId == 1) currentId = 731;
     else currentId -= 1;
     res.redirect('/' + currentId.toString());
 });
 
+// NEXT CHARACTER ROUTE
 router.get('/next', (req, res) => {
     if(currentId == 731) currentId = 1;
     else currentId += 1;

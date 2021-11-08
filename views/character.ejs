@@ -11,20 +11,21 @@
             <div class="border-8 border-gray-900 shadow overflow-hidden sm:rounded-lg">
                 <div class="bg-gray-300 px-4 py-5 sm:px-6">
                     <h3 class="text-xl font-bold leading-6 text-gray-900">
-                        <%= character.name %>
+                        <%= character.name %> (<%= character.biography["full-name"] %>)
                     </h3>
                     <p class="mt-1 max-w-2xl text-gray-500">
-                        <%= character.biography["place-of-birth"] %> 
+                        <span>Height: <%= character.appearance.height[1] %></span> 
+                        <span class="ml-2">Weight: <%= character.appearance.weight[1] %></span>
                     </p>
                 </div>
                 <div class="bg-gray-200 border border-gray-200">
                     <dl class="grid grid-cols-2">
                         <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                             <dt class=" font-medium text-gray-500">
-                                FULL NAME
+                                RACE
                             </dt>
                             <dd class="mt-1  text-gray-900 sm:mt-0 sm:col-span-2">
-                                <%= character.biography["full-name"] %>
+                                <%= character.appearance.race %>
                             </dd>
                         </div>
                         <div class="px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -71,8 +72,11 @@
                             <dt class=" font-medium text-gray-500">
                                 BIOGRAPHY
                             </dt>
-                            <dd class="mt-1  text-gray-900 sm:mt-0 sm:col-span-2">
-                                Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
+                            <dd class="mt-1 text-justify  text-gray-900 sm:mt-0 sm:col-span-2">
+                                Born in <span class="font-semibold"><%= character.biography["place-of-birth"] %></span>.
+                                First appeared in <span class="font-semibold"><%= character.biography["first-appearance"] %></span>.
+                                Published by <span class="font-semibold"><%= character.biography.publisher %></span>.
+                                Some group affiliations are: <span class="font-semibold"><%= character.connections["group-affiliation"] %></span>.
                             </dd>
                         </div>
                         <div class="col-span-2 bg-gray-100 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

@@ -4,7 +4,6 @@ const expressLayouts = require('express-ejs-layouts');
 
 // ROUTER VARIABLES
 const indexRouter = require('./routes/index');
-//const steakRouter = require('./routes/steaks');
 
 // TEMPLATING AND LAYOUT CONFIG
 app.set('view engine','ejs');
@@ -17,7 +16,6 @@ app.use(express.json());
 
 // ROUTERS
 app.use('/', indexRouter);
-//app.use('/steaks', steakRouter);
 
 // LISTENING TO PORT 3000
 app.listen(process.env.PORT || 3000);
