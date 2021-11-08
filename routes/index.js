@@ -1,28 +1,42 @@
 const express =  require('express');
 const axios = require('axios');
+const util = require('./util');
+// const { redirect } = require('statuses');
 const router = express.Router();
 
-const URL = "https://superheroapi.com/api/3036134866714953/search/";
+const URL = "https://superheroapi.com/api/3036134866714953/";
+let currentId = 1;
 
 router.route('/')
     .get((req,res) => {
-        getSuperheros(res, URL + "a");
-    })
-    .post((req,res) => {
-        const nameSearch = req.body.nameSearch;
-        getSuperheros(res, URL + nameSearch);
+        axios.get(URL + "1")
+            .then((apiResponse) => {
+                const character = apiResponse.data;
+                res.render('blank', {character: character, util: util});
+            });
     });
 
-function getSuperheros(res, url){
-    axios.get(url)
+router.get('/previous', (req, res) => {
+    if(currentId == 1) currentId = 731;
+    else currentId -= 1;
+    res.redirect('/' + currentId.toString());
+});
+
+router.get('/next', (req, res) => {
+    if(currentId == 731) currentId = 1;
+    else currentId += 1;
+    res.redirect('/' + currentId.toString());
+});
+
+// SHOW CHARACTER BASED ON ID
+router.get('/:id', (req, res) => {
+    axios.get(URL + req.params.id)
         .then((apiResponse) => {
-            const superheros = apiResponse.data.results;
-            if (superheros === undefined){
-                // SUPERHERO NOT FOUND
-                return getSuperheros(res, URL + "a");
-            }
-            res.render('index', {superheros: superheros});
+            const character = apiResponse.data;
+            res.render('blank', {character: character});
         });
-}
+});
+
+
 
 module.exports = router;

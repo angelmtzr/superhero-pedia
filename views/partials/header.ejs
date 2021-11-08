@@ -1,60 +1,13 @@
-
-<!-- Z-INDEX TO PREVENT HOVERED ELEMENTS GET ON TOP OF NAVBAR -->
-<nav class="z-40 bg-gray-900 shadow-xl w-screen text-white fixed divide-y divide-white uppercase">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16 relative">
-            <div class="flex">
-
-                <!-- MOBILE MENU BUTTON -->
-                <div class="-ml-2 mr-2 flex items-center md:hidden">
-                    <a id="menuToggler" class="inline-flex items-center justify-center p-2 rounded-md hover:bg-gray-700" aria-controls="mobile-menu" aria-expanded="false">
-                        <!-- MENU IMAGE -->
-                        <svg class="h-6 w-6" id="icon1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        </svg>
-                        <!-- CLOSE MENU IMAGE -->
-                        <svg class="hidden h-6 w-6" id="icon2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- ICON -->
-                <a class="flex-shrink-0 flex items-center text-xl" href="/">
-                    <img class="h-10 w-10 mr-2" src="icon.png" alt="icon">
-                    SUPERHERO PEDIA
+<!-- This example requires Tailwind CSS v2.0+ -->
+<nav class="bg-gray-900 font-serif">
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="relative flex items-center justify-between h-16">
+            <div class="flex-1 flex items-center justify-center">
+                <a class="flex-shrink-0 flex items-center hover:opacity-75" href="/">
+                    <img class="block h-8 w-auto mr-4" src="icon.png" alt="Workflow">
+                    <div class="text-white font-bold text-2xl">SUPERHERO PEDIA</div>
                 </a>
-
-                <!-- NAVBAR LINKS -->
-                <div class="hidden md:ml-6 md:flex space-x-2 text-lg lg:space-x-8">
-                    <a href="/" class="border-transparent hover:bg-gray-700 hover:border-gray-300 inline-flex items-center px-3 pt-1 border-b-4">
-                        Home
-                    </a>
-                    <a href="/" class="border-transparent hover:bg-gray-700 hover:border-gray-300 inline-flex items-center px-3 pt-1 border-b-4">
-                        Superheros
-                    </a>
-                    <a href="/" class="border-transparent hover:bg-gray-700 hover:border-gray-300 inline-flex items-center px-3 pt-1 border-b-4">
-                        Villains
-                    </a>
-                </div>
-
-                <form action="/" method="POST">
-                    <div class="p-5 flex flex-items-center absolute inset-y-0 right-0">
-                        <input class="rounded-lg text-gray-900 pl-2 border-4 border-gray-400 focus:border-transparent" type="text" name="nameSearch" >
-                        <button type="submit" class="ml-3 rounded-lg hover:opacity-75">SEARCH</button>
-                    </div>
-                </form>
-
             </div>
-        </div>
-    </div>
-
-    <!-- MOBILE DROPDOWN MENU -->
-    <div class="hidden md:hidden" id="mobile-menu">
-        <div class="py-1 text-lg">
-            <a href="/" class="border-transparent hover:bg-gray-700 hover:border-gray-300 block pl-3 pr-4 py-2 border-l-4 sm:pl-5 sm:pr-6">Home</a>
-            <a href="/" class="border-transparent hover:bg-gray-700 hover:border-gray-300 block pl-3 pr-4 py-2 border-l-4 sm:pl-5 sm:pr-6">Superheros</a>
-            <a href="/" class="border-transparent hover:bg-gray-700 hover:border-gray-300 block pl-3 pr-4 py-2 border-l-4 sm:pl-5 sm:pr-6">Villains</a>
         </div>
     </div>
 </nav>
