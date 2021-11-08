@@ -8,7 +8,8 @@ let currentId = 1;
 
 router.route('/')
     .get((req,res) => {
-        axios.get(URL + "1")
+        currentId = 1;
+        axios.get(URL + currentId.toString())
             .then((apiResponse) => {
                 const character = apiResponse.data;
                 res.render('character', {character: character});
@@ -29,7 +30,8 @@ router.get('/next', (req, res) => {
 
 // SHOW CHARACTER BASED ON ID
 router.get('/:id', (req, res) => {
-    axios.get(URL + req.params.id)
+    currentId = parseInt(req.params.id);
+    axios.get(URL + currentId.toString())
         .then((apiResponse) => {
             const character = apiResponse.data;
             res.render('character', {character: character});
