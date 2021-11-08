@@ -1,6 +1,5 @@
 const express =  require('express');
 const axios = require('axios');
-const util = require('./util');
 // const { redirect } = require('statuses');
 const router = express.Router();
 
@@ -12,7 +11,7 @@ router.route('/')
         axios.get(URL + "1")
             .then((apiResponse) => {
                 const character = apiResponse.data;
-                res.render('blank', {character: character, util: util});
+                res.render('character', {character: character, util: util});
             });
     });
 
@@ -33,7 +32,7 @@ router.get('/:id', (req, res) => {
     axios.get(URL + req.params.id)
         .then((apiResponse) => {
             const character = apiResponse.data;
-            res.render('blank', {character: character});
+            res.render('character', {character: character});
         });
 });
 
