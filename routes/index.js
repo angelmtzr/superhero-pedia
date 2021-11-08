@@ -11,7 +11,7 @@ router.route('/')
         axios.get(URL + "1")
             .then((apiResponse) => {
                 const character = apiResponse.data;
-                res.render('character', {character: character, util: util});
+                res.render('character', {character: character});
             });
     });
 
